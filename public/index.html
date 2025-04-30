@@ -13,17 +13,35 @@
   <body class="bg-gray-100 px-1">
     <!--App-Navbar-->
     <div
-      class="flex justify-between items-center mt-10 mb-6 px-4 rounded-xl bg-stone-100 md:hidden"
+      class="flex justify-between items-center mt-6 mb-6 px-4 py-4 rounded-xl md:hidden"
     >
+      <!--Logo-->
+      <div class="flex-none justify-center items-center p-2 transition-all duration-500 ">
+        <a class="transition-all duration-500" href="#"
+         >  
+        <!-- <img src="./logo_Ai.png" alt="logo" class="w-14 h-auto " /> -->
+        <img src="./logo_figma.png" alt="logo" class="w-16 md:hidden h-auto" />
+
+      </a>
+      </div>
+
+      <!--Mobile Nav text-->
+      <div
+        class="flex justify-center items-center text-lg sm:text-2xl font-bold font-body"
+      >
+        Smart watch
+      </div>
+
       <!--search-->
-      <div class="flex justify-center items-center text-xs p-2">
-        <!-- <input class="rounded-md w-16 h-7 p-1" type="text" placeholder="Search..."></input> -->
-        <svg
+      <div x-data="{isClicked:true}" class="flex justify-between items-center text-xs px-2 py-1 bg-white rounded-lg gap-x-2">
+        <input x-show="isClicked === true"   class="flex items-center rounded-md w-12 h-auto p-1" type="text" placeholder="Search..."></input>
+        <div @click="isClicked = !isClicked ">
+        <svg  
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          class="size-6 stroke-orange-600"
+          class="size-6 stroke-orange-600 flex items-center"
         >
           <path
             stroke-linecap="round"
@@ -32,51 +50,42 @@
           />
         </svg>
       </div>
-      <!--Mobile Nav text-->
-      <div
-        class="flex justify-center items-center text-2xl font-bold font-body"
-      >
-        Smart watch
-      </div>
-      <!--Logo-->
-      <div class="flex flex-none justify-center items-center p-2">
-        <img src="./Logo.png" alt="logo" />
       </div>
     </div>
     <!--Desktop Navbar-->
     <nav
-      class="bg-stone-100 p-1 shadow-lg md:sticky top-0 w-full z-50 md:flex justify-between items-center hidden"
+      class="bg-white rounded-lg px-2 py-1 shadow-lg md:sticky top-0 w-full z-50 md:flex justify-between items-center hidden"
     >
       <ul
-        class="flex items-center justify-start gap-x-3 text-slate-800 w-2/3 font-semibold font-body p-2"
+        class="flex flex-none items-center justify-start gap-x-3 text-slate-800 w-2/3 font-semibold font-body p-2"
       >
-        <li class="bg-white flex items-center justify-center">
+        <li class="bg-white flex flex-none items-center justify-center">
           <a class="transition-all duration-500" href="#"
-            ><img class="w-14 h-auto" src="./Logo.png" alt=""
+            ><img class="sm:w-20 sm:h-auto" src="./logo_figma.png" alt=""
           /></a>
         </li>
-        <li>
+        <li class="whitespace-nowrap">
           <a
             class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
             href="#"
             >Log in</a
           >
         </li>
-        <li>
+        <li class="whitespace-nowrap">
           <a
             class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
             href="#"
             >Shopping cart</a
           >
         </li>
-        <li>
+        <li class="whitespace-nowrap">
           <a
             class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
             href="#"
             >Customer service</a
           >
         </li>
-        <li>
+        <li class="whitespace-nowrap">
           <a
             class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
             href="#"
@@ -90,7 +99,7 @@
         <input
           type="text"
           placeholder="What are you looking for?"
-          class="text-sm w-full py-1.5 rounded-lg px-2.5"
+          class="text-xs lg:text-sm w-full py-1.5 rounded-lg px-2.5 "
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +107,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-6"
+          class="size-8 flex justify-center items-center pr-1"
         >
           <path
             stroke-linecap="round"
@@ -570,12 +579,12 @@
       <div class="hidden md:block col-span-8 lg:col-span-9">
         <div
           x-data="{sort: 1, activeClass: 'text-slate-800 font-medium'}"
-          class="flex items-center gap-x-4 text-gray-400 bg-white rounded-lg"
+          class="flex items-center  gap-x-4 text-gray-400 bg-white rounded-lg"
         >
           <button
             @click="sort=1"
             :class="sort===1 ? activeClass : ''"
-            class="cursor-pointer md:px-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
+            class="cursor-pointer md:pl-3 md:pr-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
           >
             <span>Category</span>
             <span

@@ -5,6 +5,7 @@ export default {
       screens: {
         "sm-md": "580px",
         "md-sm": "640px",
+        "close-md": "",
       },
     },
     fontFamily: {
