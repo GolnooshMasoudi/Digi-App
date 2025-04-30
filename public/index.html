@@ -11,7 +11,7 @@
     <title>Digi Nest App</title>
   </head>
   <body class="bg-gray-100 px-1">
-    <!--App-bar-->
+    <!--App-Navbar-->
     <div
       class="flex justify-between items-center mt-10 mb-6 px-4 rounded-xl bg-stone-100 md:hidden"
     >
@@ -32,7 +32,7 @@
           />
         </svg>
       </div>
-      <!--Nav text-->
+      <!--Mobile Nav text-->
       <div
         class="flex justify-center items-center text-2xl font-bold font-body"
       >
@@ -43,6 +43,71 @@
         <img src="./Logo.png" alt="logo" />
       </div>
     </div>
+    <!--Desktop Navbar-->
+    <nav
+      class="bg-stone-100 p-1 shadow-lg md:sticky top-0 w-full z-50 md:flex justify-between items-center hidden"
+    >
+      <ul
+        class="flex items-center justify-start gap-x-3 text-slate-800 w-2/3 font-semibold font-body p-2"
+      >
+        <li class="bg-white flex items-center justify-center">
+          <a class="transition-all duration-500" href="#"
+            ><img class="w-14 h-auto" src="./Logo.png" alt=""
+          /></a>
+        </li>
+        <li>
+          <a
+            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+            href="#"
+            >Log in</a
+          >
+        </li>
+        <li>
+          <a
+            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+            href="#"
+            >Shopping cart</a
+          >
+        </li>
+        <li>
+          <a
+            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+            href="#"
+            >Customer service</a
+          >
+        </li>
+        <li>
+          <a
+            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+            href="#"
+            >Contact us</a
+          >
+        </li>
+      </ul>
+      <div
+        class="flex justify-end items-center bg-stone-200 p-2 gap-x-2 rounded-lg w-1/4"
+      >
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          class="text-sm w-full py-1.5 rounded-lg px-2.5"
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+          />
+        </svg>
+      </div>
+    </nav>
     <!--Filter & Sort-->
     <div
       class="flex justify-between items-center rounded-xl bg-stone-100 px-4 gap-x-4 mb-9 md:hidden"
@@ -93,14 +158,12 @@
       </div>
     </div>
 
-    <!--App-->
+    <!--Content-->
     <div
-      class="grid grid-cols-12 md:grid-rows-[55px_minmax(500px,_1fr)] md:gap-8"
+      class="grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr)] md:gap-8 mt-4"
     >
       <!--side bar-->
-      <div
-        class="hidden md:block col-span-4 lg:col-span-3 row-span-2 bg-blue-600"
-      >
+      <div class="hidden md:block col-span-4 lg:col-span-3 row-span-2">
         <div class="bg-white p-5 rounded-xl">
           <!--Categories sidebar-->
           <div class="mb-5">
@@ -108,7 +171,9 @@
               Categories
             </div>
             <ul>
-              <li class="hover:bg-gray-100 hover:rounded-md cursor-pointer">
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
                 <a class="flex items-center gap-2 py-2" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,10 +192,12 @@
                   <span>Mobile</span>
                 </a>
               </li>
-              <li class="hover:bg-gray-100 hover:rounded-md cursor-pointer">
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
                 <a class="flex items-center gap-2 py-2" href="#">
                   <svg
-                    class="w-5 h-6 stroke-slate-800"
+                    class="w-5 h-6 stroke-current"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 16 16"
@@ -151,7 +218,9 @@
                   <span class="pl-0 ml-0">Watches & Training</span>
                 </a>
               </li>
-              <li class="hover:bg-gray-100 hover:rounded-md cursor-pointer">
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
                 <a class="flex items-center gap-2 py-2" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +240,9 @@
                   <span>Computer & tablets</span>
                 </a>
               </li>
-              <li class="hover:bg-gray-100 hover:rounded-md cursor-pointer">
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
                 <a class="flex items-center gap-2 py-2" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +261,9 @@
                   <span>Gaming</span>
                 </a>
               </li>
-              <li class="hover:bg-gray-100 hover:rounded-md cursor-pointer">
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
                 <a class="flex items-center gap-2 py-2" href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -216,78 +289,279 @@
           <!--Desktop filter sidebar-->
           <div>
             <div class="text-lg font-bold text-orange-400 mb-5 px-2">
-              Filter
+              Filters
             </div>
             <!--AC. NO. 1-->
-            <div class="">
+            <div x-data="{isOpenAvailableInStor:true}" class="">
               <!--AC #1 header-->
-              <div class="flex">
+              <div
+                @click="isOpenAvailableInStor = !isOpenAvailableInStor "
+                class="flex items-center justify-between w-full px-2 py-2 hover:bg-gray-100 hover:rounded-md cursor-pointer text-base md:text-balance"
+              >
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 6h.008v.008H6V6Z"
+                    />
+                  </svg>
+                  <span class="">Available in store</span>
+                </div>
                 <svg
+                  :class="isOpenAvailableInStor ? 'rotate-180' : '' "
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="size-6"
+                  class="size-5 transition-all duration-700"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 6h.008v.008H6V6Z"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
               </div>
               <!--AC #1 content-->
-              <div class=""></div>
+              <div
+                x-show="isOpenAvailableInStor === true"
+                class="mb-4 px-4 flex flex-col gap-1"
+              >
+                <label
+                  for="available"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="available"
+                    name="available"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2">Yes</span>
+                </label>
+                <label
+                  for="noavailable"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="noavailable"
+                    name="noavailable"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2">No</span>
+                </label>
+              </div>
             </div>
             <!--AC. NO. 2-->
-            <div class="">
+            <div x-data="{ isOpenColor:true}" class="">
               <!--AC #2 header-->
-              <div class="">
+              <div
+                @click="isOpenColor = !isOpenColor "
+                class="flex items-center justify-between w-full px-2 py-2 hover:bg-gray-100 hover:rounded-md cursor-pointer text-base md:text-balance"
+              >
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
+                    />
+                  </svg>
+                  <span class="">Color</span>
+                </div>
                 <svg
+                  :class="isOpenColor ? 'rotate-180' : '' "
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="size-6"
+                  class="size-5 transition-all duration-700"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
               </div>
               <!--AC #2 content-->
-              <div class=""></div>
+              <div
+                x-show="isOpenColor === true"
+                class="mb-4 px-4 flex flex-col gap-1"
+              >
+                <label for="red" class="py-1 flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id="red"
+                    name="red"
+                    class="form-checkbox rounded-md text-red-500 focus:ring-red-500"
+                  />
+                  <span class="ml-2">Red</span>
+                </label>
+                <label
+                  for="white"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="white"
+                    name="white"
+                    class="form-checkbox rounded-md text-green-500 focus:ring-green-500"
+                  />
+                  <span class="ml-2">Gren</span>
+                </label>
+                <label
+                  for="black"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="black"
+                    name="black"
+                    class="form-checkbox rounded-md text-gray-950 focus:ring-gray-950"
+                  />
+                  <span class="ml-2">Black</span>
+                </label>
+                <label for="blue" class="py-1 flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id="blue"
+                    name="blue"
+                    class="form-checkbox rounded-md text-blue-500 focus:ring-blue-500"
+                  />
+                  <span class="ml-2">Blue</span>
+                </label>
+              </div>
             </div>
             <!--AC. NO. 3-->
-            <div class="">
+            <div x-data="{ isOpenPrice:true}" class="">
               <!--AC #3 header-->
-              <div class="">
+              <div
+                @click="isOpenPrice = !isOpenPrice "
+                class="flex items-center justify-between w-full px-2 py-2 hover:bg-gray-100 hover:rounded-md cursor-pointer text-base md:text-balance"
+              >
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5 transition-all duration-700"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+                    />
+                  </svg>
+                  <span class="">Price</span>
+                </div>
                 <svg
+                  :class="isOpenPrice ? 'rotate-180' : '' "
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="size-6"
+                  class="size-5 transition-all duration-700"
                 >
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+                    d="m19.5 8.25-7.5 7.5-7.5-7.5"
                   />
                 </svg>
               </div>
               <!--AC #3 content-->
-              <div class=""></div>
+              <div
+                x-show="isOpenPrice === true"
+                class="mb-4 px-4 flex flex-col gap-1"
+              >
+                <label
+                  for="range-1"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="range-1"
+                    name="range-1"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2"
+                    >Under 2,500
+                    <span class="text-gray-600 text-xs">SEK</span></span
+                  >
+                </label>
+                <label
+                  for="range-2"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="range-2"
+                    name="range-2"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2"
+                    >2,500 – 6,000
+                    <span class="text-gray-600 text-xs">SEK</span></span
+                  >
+                </label>
+                <label
+                  for="range-3"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="range-3"
+                    name="range-3"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2"
+                    >6,000 – 10,000
+                    <span class="text-gray-600 text-xs">SEK</span></span
+                  >
+                </label>
+                <label
+                  for="range-4"
+                  class="py-1 flex items-center cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    id="range-4"
+                    name="range-4"
+                    class="form-checkbox rounded-md text-orange-500 focus:ring-orange-500"
+                  />
+                  <span class="ml-2"
+                    >Over 10,000
+                    <span class="text-gray-600 text-xs">SEK</span></span
+                  >
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -301,7 +575,7 @@
           <button
             @click="sort=1"
             :class="sort===1 ? activeClass : ''"
-            class="cursor-pointer px-4 py-4"
+            class="cursor-pointer md:px-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
           >
             <span>Category</span>
             <span
@@ -312,7 +586,7 @@
           <button
             @click="sort=2"
             :class="sort===2 ? activeClass : ''"
-            class="cursor-pointer px-4 py-4"
+            class="cursor-pointer md:px-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
           >
             <span>Trademark</span>
             <span
@@ -323,7 +597,7 @@
           <button
             @click="sort=3"
             :class="sort===3 ? activeClass : ''"
-            class="cursor-pointer px-4 py-4"
+            class="cursor-pointer md:px-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
           >
             <span>Most relevent</span>
             <span
@@ -334,9 +608,9 @@
           <button
             @click="sort=4"
             :class="sort===4 ? activeClass : ''"
-            class="cursor-pointer px-4 py-4"
+            class="cursor-pointer md:px-2 md:py-2 lg:px-4 lg:py-4 text-sm lg:text-base"
           >
-            <span>All filters</span>
+            <span>Customer reviews</span>
             <span
               x-show="sort===4"
               class="w-2 h-2 rounded-full bg-orange-400 absolute top-2 transition-transform duration-300"
@@ -364,17 +638,17 @@
         <div
           x-data="{
         products : [
-        {id:1, title:'Series 5 (GPS, 40MM)', price:'20,000'},
+        {id:1, title:'Series 5 ', price:'20,000'},
         {id:2, title:' Gold Aluminum' , price:'30,000'},
-        {id:3, title:'Series 5 (GPS, 40MM)' , price:'50,000'},
-        {id:4, title:'White Sport Band', price:'20,000'},
+        {id:3, title:'Series 5 ' , price:'50,000'},
+        {id:4, title:'White Sport ', price:'20,000'},
         {id:5, title:'Gold Aluminum' , price:'80,000'},
-        {id:6, title:'White Sport Band' , price:'40,000'},
+        {id:6, title:'White Sport ' , price:'40,000'},
         {id:7, title:'Gold Aluminum' , price:'70,000'},
-        {id:8, title:'White Sport Band' , price:'20,000'},
+        {id:8, title:'White Sport ' , price:'20,000'},
         ]
         }"
-          class="grid gap-x-3 grid-cols-2 sm:gap-x-4 md:gap-x-8 md:gap-y-10 lg:grid-cols-4 gap-y-6 px-4 md:px-0"
+          class="grid gap-x-3 grid-cols-2 sm:gap-x-4 md:grid-cols-3 md:gap-x-8 md:gap-y-10 lg:grid-cols-4 gap-y-6 px-4 md:px-0"
         >
           <template x-for="product in products" :key="product.id">
             <div class="p-1 rounded-xl border border-stone-300">
@@ -402,7 +676,12 @@
                   </div>
                 </div>
                 <!---product image-->
-                <div class="px-8 md:px-6 lg:px-4">
+                <div
+                  class="px-8 md:px-6 lg:px-4 w-full sm-md:w-10/12 lg:w-11/12 h-auto object-contain mx-auto"
+                >
+                  <!-- <div
+                  class="w-full sm:w-[90%] [@media(min-width:600px)and(max-width:758px)]:w-1/2 md:w-2/3 lg:w-1/2 h-auto object-contain mx-auto"
+                > -->
                   <img src="./1.png" alt="" />
                 </div>
                 <!-- class="flex items-center justify-center w-2/3 h-1/2" -->
@@ -530,7 +809,7 @@
               <!-- product add to basket btn -->
               <div class="flex justify-center items-center px-4">
                 <button
-                  class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base md:text-lg lg:text-xl rounded-md py-2 border border-slate-300 hover:text-white hover:bg-gray-400 hover:border-orange-300 mb-2"
+                  class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md py-2 border border-slate-300 hover:text-white hover:bg-gray-400 hover:border-orange-300 mb-2"
                 >
                   Add to Basket
                 </button>
