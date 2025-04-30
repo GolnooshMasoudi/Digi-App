@@ -13,108 +13,150 @@
   <body class="bg-gray-100 px-1">
     <!--App-Navbar-->
     <div
-      class="flex justify-between items-center mt-6 mb-6 px-4 py-4 rounded-xl md:hidden"
+      class="flex justify-between items-center mt-6 mb-6 px-2 py-4 rounded-xl md:hidden"
     >
       <!--Logo-->
-      <div class="flex-none justify-center items-center p-2 transition-all duration-500 ">
-        <a class="transition-all duration-500" href="#"
-         >  
-        <!-- <img src="./logo_Ai.png" alt="logo" class="w-14 h-auto " /> -->
-        <img src="./logo_figma.png" alt="logo" class="w-16 md:hidden h-auto" />
-
-      </a>
+      <div
+        class="flex justify-center items-center p-2 transition-all duration-500 w-1/5 sm-md:w-1/6"
+      >
+        <a class="transition-all duration-500" href="#">
+          <!-- <img src="./logo_Ai.png" alt="logo" class="w-14 h-auto " /> -->
+          <img src="./logo_figma.png" alt="logo" class="md:hidden h-auto" />
+        </a>
       </div>
 
       <!--Mobile Nav text-->
       <div
-        class="flex justify-center items-center text-lg sm:text-2xl font-bold font-body"
+        class="flex items-center justify-start text-base sm:text-lg font-bold font-body w-1/3"
       >
-        Smart watch
+        <span class="flex justify-center">Smart watch</span>
       </div>
 
       <!--search-->
-      <div x-data="{isClicked:true}" class="flex justify-between items-center text-xs px-2 py-1 bg-white rounded-lg gap-x-2">
-        <input x-show="isClicked === true"   class="flex items-center rounded-md w-12 h-auto p-1" type="text" placeholder="Search..."></input>
-        <div @click="isClicked = !isClicked ">
-        <svg  
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          class="size-6 stroke-orange-600 flex items-center"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+      <div
+        x-data="{isClicked:false, screenSize: window.innerWidth}"
+        class="flex justify-center items-center text-xs px-2 py-1 rounded-lg gap-x-2 w-auto"
+        :class="isClicked ? ' bg-stone-50' : ''"
+        x-init="
+          window.addEventListener('resize', () => {
+            screenSize = window.innerWidth;
+          });
+        "
+      >
+        <div>
+          <input
+            x-show="isClicked"
+            x-ref="searchInput"
+            class="flex justify-end items-center rounded-md p-1 focus:outline-none"
+            type="text"
+            placeholder="search..."
+            :placeholder="screenSize >= 640 ? 'What are you looking for?' : 'search...'"
+            :class="{
+              'block bg-stone-50': isClicked,
+              'flex justify-start w-auto': isClicked && screenSize >= 640,
+              'hidden': !isClicked,
+              'w-16': isClicked && screenSize < 640
+            }"
           />
-        </svg>
-      </div>
+        </div>
+        <div
+          @click="isClicked = !isClicked; $nextTick(() => { if (isClicked) { $refs.searchInput.focus(); } })"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            class="size-6 stroke-orange-600 flex items-center"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
     <!--Desktop Navbar-->
     <nav
-      class="bg-white rounded-lg px-2 py-1 shadow-lg md:sticky top-0 w-full z-50 md:flex justify-between items-center hidden"
+      class="bg-white hidden md:block rounded-lg px-2 py-2 shadow-lg md:sticky top-0 z-50"
     >
-      <ul
-        class="flex flex-none items-center justify-start gap-x-3 text-slate-800 w-2/3 font-semibold font-body p-2"
-      >
-        <li class="bg-white flex flex-none items-center justify-center">
-          <a class="transition-all duration-500" href="#"
-            ><img class="sm:w-20 sm:h-auto" src="./logo_figma.png" alt=""
-          /></a>
-        </li>
-        <li class="whitespace-nowrap">
-          <a
-            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
-            href="#"
-            >Log in</a
-          >
-        </li>
-        <li class="whitespace-nowrap">
-          <a
-            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
-            href="#"
-            >Shopping cart</a
-          >
-        </li>
-        <li class="whitespace-nowrap">
-          <a
-            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
-            href="#"
-            >Customer service</a
-          >
-        </li>
-        <li class="whitespace-nowrap">
-          <a
-            class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
-            href="#"
-            >Contact us</a
-          >
-        </li>
-      </ul>
       <div
-        class="flex justify-end items-center bg-stone-200 p-2 gap-x-2 rounded-lg w-1/4"
+        class="flex justify-between items-center container 2xl:max-w-screen-2xl mx-auto"
       >
-        <input
-          type="text"
-          placeholder="What are you looking for?"
-          class="text-xs lg:text-sm w-full py-1.5 rounded-lg px-2.5 "
-        />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-8 flex justify-center items-center pr-1"
+        <ul
+          class="flex items-center justify-start md:gap-x-1.5 lg:gap-x-4 text-slate-800 w-2/3 font-semibold font-body p-2"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
+          <li class="bg-white flex flex-none items-center justify-center">
+            <a class="transition-all duration-500" href="#"
+              ><img class="sm:w-20 sm:h-auto" src="./logo_figma.png" alt="" />
+            </a>
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Log in</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Shopping cart</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Customer service</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Contact us</a
+            >
+          </li>
+        </ul>
+        <!--search desktop navbar-->
+        <div x-data="{isClickedOnSearch: false}" class="">
+          <div
+            class="flex justify-end items-center text-xs px-2 py-1 rounded-lg gap-x-2 shadow-lg"
+            :class="isClickedOnSearch ? ' bg-stone-50' : ''"
+          >
+            <input
+              x-ref="searchInput"
+              x-show="isClickedOnSearch"
+              type="text"
+              placeholder="What are you looking for?"
+              class="flex justify-start items-center text-xs sm:text-sm h-auto py-1.5 px-2.5 rounded-lg focus:outline-none"
+              :class="isClickedOnSearch ? 'block bg-stone-50 max-w-lg' : 'hidden'"
+            />
+
+            <span
+              @click="isClickedOnSearch = !isClickedOnSearch; $nextTick(() => { if (isClickedOnSearch) { $refs.searchInput.focus(); } })"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8 flex justify-start items-center pr-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
       </div>
     </nav>
     <!--Filter & Sort-->
@@ -169,11 +211,15 @@
 
     <!--Content-->
     <div
-      class="grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr)] md:gap-8 mt-4"
+      class="container 2xl:max-w-screen-2xl mx-auto grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr)] md:px-2 md:gap-6 mt-4"
     >
       <!--side bar-->
-      <div class="hidden md:block col-span-4 lg:col-span-3 row-span-2">
-        <div class="bg-white p-5 rounded-xl">
+      <div
+        class="hidden md:block col-span-4 lg:col-span-3 xl:col-span-2 row-span-2"
+      >
+        <div
+          class="bg-white p-5 lg:p-3 xl:p-2 rounded-xl xl:text-sm max-h-[calc(100vh-130px)] sticky top-24 z-20 overflow-auto"
+        >
           <!--Categories sidebar-->
           <div class="mb-5">
             <div class="text-lg font-bold text-orange-400 mb-5 px-2">
@@ -301,7 +347,7 @@
               Filters
             </div>
             <!--AC. NO. 1-->
-            <div x-data="{isOpenAvailableInStor:true}" class="">
+            <div x-data="{isOpenAvailableInStor:true}" class="xl:text-sm">
               <!--AC #1 header-->
               <div
                 @click="isOpenAvailableInStor = !isOpenAvailableInStor "
@@ -327,7 +373,9 @@
                       d="M6 6h.008v.008H6V6Z"
                     />
                   </svg>
-                  <span class="">Available in store</span>
+                  <span class="text-base md:text-balance xl:text-sm"
+                    >Available in store</span
+                  >
                 </div>
                 <svg
                   :class="isOpenAvailableInStor ? 'rotate-180' : '' "
@@ -377,7 +425,7 @@
               </div>
             </div>
             <!--AC. NO. 2-->
-            <div x-data="{ isOpenColor:true}" class="">
+            <div x-data="{ isOpenColor:true}" class="xl:text-sm">
               <!--AC #2 header-->
               <div
                 @click="isOpenColor = !isOpenColor "
@@ -398,7 +446,9 @@
                       d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
                     />
                   </svg>
-                  <span class="">Color</span>
+                  <span class="text-base md:text-balance xl:text-sm"
+                    >Color</span
+                  >
                 </div>
                 <svg
                   :class="isOpenColor ? 'rotate-180' : '' "
@@ -440,7 +490,7 @@
                     name="white"
                     class="form-checkbox rounded-md text-green-500 focus:ring-green-500"
                   />
-                  <span class="ml-2">Gren</span>
+                  <span class="ml-2">Green</span>
                 </label>
                 <label
                   for="black"
@@ -466,7 +516,7 @@
               </div>
             </div>
             <!--AC. NO. 3-->
-            <div x-data="{ isOpenPrice:true}" class="">
+            <div x-data="{ isOpenPrice:true}" class="xl:text-sm">
               <!--AC #3 header-->
               <div
                 @click="isOpenPrice = !isOpenPrice "
@@ -487,7 +537,9 @@
                       d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
                     />
                   </svg>
-                  <span class="">Price</span>
+                  <span class="text-base md:text-balance xl:text-sm"
+                    >Price</span
+                  >
                 </div>
                 <svg
                   :class="isOpenPrice ? 'rotate-180' : '' "
@@ -576,10 +628,10 @@
         </div>
       </div>
       <!--sort Section-->
-      <div class="hidden md:block col-span-8 lg:col-span-9">
+      <div class="hidden md:block col-span-8 lg:col-span-9 xl:col-span-10">
         <div
           x-data="{sort: 1, activeClass: 'text-slate-800 font-medium'}"
-          class="flex items-center  gap-x-4 text-gray-400 bg-white rounded-lg"
+          class="flex items-center gap-x-4 text-gray-400 bg-white rounded-lg"
         >
           <button
             @click="sort=1"
@@ -643,7 +695,7 @@
         </div>
       </div>
       <!--Products section-->
-      <div class="col-span-12 md:col-span-8 lg:col-span-9">
+      <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
         <div
           x-data="{
         products : [
@@ -686,7 +738,7 @@
                 </div>
                 <!---product image-->
                 <div
-                  class="px-8 md:px-6 lg:px-4 w-full sm-md:w-10/12 lg:w-11/12 h-auto object-contain mx-auto"
+                  class="px-8 md:px-6 lg:px-4 w-full sm-md:w-10/12 md:w-11/12 h-auto object-contain mx-auto"
                 >
                   <!-- <div
                   class="w-full sm:w-[90%] [@media(min-width:600px)and(max-width:758px)]:w-1/2 md:w-2/3 lg:w-1/2 h-auto object-contain mx-auto"
