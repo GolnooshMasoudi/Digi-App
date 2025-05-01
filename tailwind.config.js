@@ -7,6 +7,9 @@ export default {
         "md-sm": "640px",
         "close-md": "",
       },
+      // boxShadow: {
+      //   "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+      // },
     },
     fontFamily: {
       display: ["Oswald"],

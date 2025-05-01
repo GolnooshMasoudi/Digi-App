@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/output.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-gray-100 px-2">
+    <!--App-Navbar-->
+    <div
+      class="flex justify-between items-center mt-6 mb-6 px-2 py-4 rounded-xl md:hidden"
+    >
+      <!--Logo-->
+      <div
+        class="flex justify-center items-center p-2 transition-all duration-500 w-1/5 sm-md:w-1/6"
+      >
+        <a class="transition-all duration-500" href="#">
+          <!-- <img src="./logo_Ai.png" alt="logo" class="w-14 h-auto " /> -->
+          <img
+            src="./images/logo_figma.png"
+            alt="logo"
+            class="md:hidden h-auto"
+          />
+        </a>
+      </div>
+
+      <!--Mobile Nav text-->
+      <!-- <div
+        class="flex items-center justify-start text-base sm:text-lg font-bold font-body w-1/3"
+      >
+        <span class="flex justify-center">Smart watch</span>
+      </div> -->
+
+      <!--search-->
+      <div
+        x-data="{isClicked:true, screenSize: window.innerWidth}"
+        class="flex justify-center items-center text-xs px-2 py-1 rounded-lg gap-x-2 w-auto"
+        :class="isClicked ? ' bg-stone-50' : ''"
+        x-init="
+          window.addEventListener('resize', () => {
+            screenSize = window.innerWidth;
+          });
+        "
+      >
+        <div>
+          <input
+            x-show="isClicked"
+            x-ref="searchInput"
+            class="flex justify-end items-center rounded-md p-1 focus:outline-none"
+            type="text"
+            placeholder="search..."
+            :placeholder="screenSize >= 640 ? 'What are you looking for?' : 'search...'"
+            :class="{
+              'block bg-stone-50': isClicked,
+              'flex justify-start w-auto': isClicked && screenSize >= 640,
+              'hidden': !isClicked,
+              'w-32': isClicked && screenSize < 640
+            }"
+          />
+        </div>
+        <div
+          @click="isClicked = !isClicked; $nextTick(() => { if (isClicked) { $refs.searchInput.focus(); } })"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            class="size-6 stroke-orange-600 flex items-center"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!--Desktop Navbar-->
+    <nav
+      class="bg-white hidden md:block rounded-lg px-2 py-2 shadow-lg md:sticky top-0 z-50"
+    >
+      <div
+        class="flex justify-between items-center container 2xl:max-w-screen-2xl mx-auto"
+      >
+        <ul
+          class="flex items-center justify-start md:gap-x-1.5 lg:gap-x-4 text-slate-800 w-2/3 font-semibold font-body p-2"
+        >
+          <li class="bg-white flex flex-none items-center justify-center">
+            <a class="transition-all duration-500" href="#"
+              ><img
+                class="sm:w-20 sm:h-auto"
+                src="./images/logo_figma.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Log in</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Shopping cart</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Customer service</a
+            >
+          </li>
+          <li class="whitespace-nowrap">
+            <a
+              class="block transition-all duration-500 hover:underline hover:underline-offset-4 px-2 py-2 text-base lg:text-lg"
+              href="#"
+              >Contact us</a
+            >
+          </li>
+        </ul>
+        <!--search desktop navbar-->
+        <div x-data="{isClickedOnSearch: false}" class="">
+          <div
+            class="flex justify-end items-center text-xs px-2 py-1 rounded-lg gap-x-2 shadow-lg"
+            :class="isClickedOnSearch ? ' bg-stone-50' : ''"
+          >
+            <input
+              x-ref="searchInput"
+              x-show="isClickedOnSearch"
+              type="text"
+              placeholder="What are you looking for?"
+              class="flex justify-start items-center text-xs sm:text-sm h-auto py-1.5 px-2.5 rounded-lg focus:outline-none"
+              :class="isClickedOnSearch ? 'block bg-stone-50 max-w-lg' : 'hidden'"
+            />
+
+            <span
+              @click="isClickedOnSearch = !isClickedOnSearch; $nextTick(() => { if (isClickedOnSearch) { $refs.searchInput.focus(); } })"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-8 flex justify-start items-center pr-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--BreadCrumbs-->
+    <div class="flex items-center gap-x-2 px-4 text-sm mb-6 md:hidden">
+      <span class="text-orange-500">Mobile</span>
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg>
+      </span>
+      <span class="text-orange-500">Iphone</span>
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg>
+      </span>
+      <span class="text-slate-800">Iphone 16 pro</span
+      ><span>
+        <!-- <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg> -->
+      </span>
+      <!-- <span class="text-slate-800">Mobile phone</span>
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg>
+      </span> -->
+    </div>
+
+    <!--Content-->
+    <div
+      class="container 2xl:max-w-screen-2xl mx-auto grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr)] md:px-2 md:gap-6 mt-4"
+    >
+      <!--side bar-->
+      <div
+        class="hidden md:block col-span-4 lg:col-span-3 xl:col-span-2 row-span-2"
+      >
+        <div
+          class="bg-white p-5 lg:p-3 xl:p-2 rounded-xl xl:text-sm max-h-[calc(100vh-130px)] sticky top-24 z-20 overflow-auto"
+        >
+          <!--Categories sidebar-->
+          <div class="mb-5">
+            <div class="text-lg font-bold text-orange-400 mb-5 px-2">
+              Categories
+            </div>
+            <ul>
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
+                <a class="flex items-center gap-2 py-2" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                    />
+                  </svg>
+                  <span>Mobile</span>
+                </a>
+              </li>
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
+                <a class="flex items-center gap-2 py-2" href="#">
+                  <svg
+                    class="w-5 h-6 stroke-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d="M5.66646 12.6668h4.66664c1.5534 0 2.3334-.78 2.3334-2.3333V5.66683c0-1.55333-.78-2.33333-2.3334-2.33333H5.66646c-1.55333 0-2.33333.78-2.33333 2.33333v4.66667c0 1.5533.78 2.3333 2.33333 2.3333ZM10.6665 1.3335H5.33313M10.6665 14.6665H5.33313"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-miterlimit="10"
+                      d="M7.66687 6.3335v2h2"
+                    />
+                  </svg>
+                  <span class="pl-0 ml-0">Watches & Training</span>
+                </a>
+              </li>
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
+                <a class="flex items-center gap-2 py-2" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+                    />
+                  </svg>
+
+                  <span>Computer & tablets</span>
+                </a>
+              </li>
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
+                <a class="flex items-center gap-2 py-2" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z"
+                    />
+                  </svg>
+                  <span>Gaming</span>
+                </a>
+              </li>
+              <li
+                class="hover:bg-gray-100 hover:rounded-md cursor-pointer px-2"
+              >
+                <a class="flex items-center gap-2 py-2" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                    />
+                  </svg>
+                  <span>Outlet</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- Separator Line -->
+          <div class="border-t border-gray-300 pt-2 mb-2 w-full"></div>
+        </div>
+      </div>
+      <!--sort Section-->
+      <div class="hidden md:block col-span-8 lg:col-span-9 xl:col-span-10">
+        <!--BreadCrumbs-->
+        <div
+          class="flex items-center gap-x-2 px-4 text-sm mb-6 py-4 bg-white rounded-lg"
+        >
+          <span class="text-orange-500">Mobile</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 7 9"
+              class="size-3 stroke-orange-500"
+            >
+              <path
+                d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+              />
+            </svg>
+          </span>
+          <span class="text-orange-500">Iphone</span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 7 9"
+              class="size-3 stroke-orange-500"
+            >
+              <path
+                d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+              />
+            </svg>
+          </span>
+          <span class="text-slate-800">Iphone 16 pro</span
+          ><span>
+            <!-- <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg> -->
+          </span>
+          <!-- <span class="text-slate-800">Mobile phone</span>
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 7 9"
+          class="size-3 stroke-orange-500"
+        >
+          <path
+            d="M1.51562.5c-.12839.002234-.24976.032102-.37011.091797C.998025.679262.880012.813864.814453.96875c-.020154.05559-.05702.1983-.09375.36328-.017229.0774-.032194.14995-.042969.20313-.003195.01577-.006521.02947-.008789.04101l-.007812.04297C.56006 2.17745.500002 3.12147.5 4.19434c0 1.0056.059337 1.91039.142578 2.49121.001829.00816.003567.01615.004883.02246.004973.02386.011118.05582.017578.08887.013581.06947.031163.15933.051758.25488.020693.09598.043095.19284.066406.27636.011638.04169.022369.07733.032227.10547.004869.01391.009311.02497.012695.03321.001564.0038.00295.00667.003906.00879l.001953.00293c.137425.26839.397066.42187.658206.42187h.02148c.01839-.00065.07105-.00775.16016-.03125.08284-.02186.17591-.05239.26465-.08398.0433-.01543.08383-.03246.12109-.04688l.2002-.08496c.48172-.20548 1.23379-.64503 1.97851-1.15918.74654-.51542 1.43569-1.07112 1.81348-1.49121l.00781-.00781.00781-.00879.00196-.00098c.00136-.0014.00393-.00385.00683-.00683.00577-.00593.01378-.01526.02442-.02637.02172-.02269.05235-.05418.08496-.08985.07095-.0776.13349-.15225.16308-.19531l.01172-.01562.05957-.09668c.05176-.10267.08005-.22317.08008-.34961 0-.19166-.05641-.35893-.1543-.49121-.03033-.03338-.06967-.0748-.10254-.11133-.05855-.06509-.12516-.13815-.1875-.20215l-.01269-.01269c-.36912-.40645-1.06747-.97266-1.83106-1.50196-.668-.46303-1.3441-.86914-1.84082-1.099607L2.16992.698242 2.16113.694336C2.09337.665447 1.95952.614909 1.81836.571289 1.67093.525755 1.56321.50338 1.51562.5Z"
+          />
+        </svg>
+      </span> -->
+        </div>
+      </div>
+      <!--Products section-->
+      <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
+        <!--Single product-->
+        <div
+          class="px-4 flex flex-col items-center justify-center gap-y-5 md:flex-row"
+        >
+          <!--Product image-->
+          <div class="w-4/5 max-w-xs">
+            <img src="./iPhone_16_Pro-removebg-preview 2.png" alt="" />
+          </div>
+          <!--product title & color-->
+          <div class="">
+            <!--Product title-->
+            <div class="mb-6 text-center">
+              <h1
+                class="text-slate-800 font-bold text-lg mb-1 flex justify-center pb-1"
+              >
+                Apple iPhone 16e 128GB, black
+              </h1>
+              <h2 class="font-thin text-gray-500 flex justify-center">
+                New iPhone. At an incredible price.
+              </h2>
+            </div>
+            <!--Product color-->
+            <div
+              class="flex items-center justify-evenly w-full px-2 mb-3 md:justify-start"
+            >
+              <span
+                class="text-sm font-medium md:text-base lg:text-lg text-slate-800"
+                >Choose color:</span
+              >
+              <div x-data="{color:''}" class="flex items-center">
+                <div
+                  @click="color = 'pink'"
+                  :class="{
+            'scale-110 ring-1 ring-gray-400': color === 'pink'
+          }"
+                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-pink-600 -mr-1 transition-transform duration-300"
+                >
+                  <svg
+                    x-show="color==='pink'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-4 sm:size-5 stroke-white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 12.75 6 6 9-13.5"
+                    />
+                  </svg>
+                </div>
+
+                <div
+                  @click="color = 'sky'"
+                  :class="{'scale-110 ring-1 ring-gray-400': color === 'sky'}"
+                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-sky-400 -mr-1 transition-transform duration-300"
+                >
+                  <svg
+                    x-show="color==='sky'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-4 sm:size-5 stroke-white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 12.75 6 6 9-13.5"
+                    />
+                  </svg>
+                </div>
+
+                <div
+                  @click="color = 'violet'"
+                  :class="{'scale-110 ring-1 ring-gray-400': color === 'violet'}"
+                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-violet-500 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+                >
+                  <svg
+                    x-show="color==='violet'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-4 sm:size-5 stroke-white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 12.75 6 6 9-13.5"
+                    />
+                  </svg>
+                </div>
+
+                <div
+                  @click="color = 'green'"
+                  :class="{'scale-110 ring-1 ring-gray-400': color === 'green'}"
+                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-green-400 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+                >
+                  <svg
+                    x-show="color==='green'"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    class="size-4 sm:size-5 stroke-white"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 12.75 6 6 9-13.5"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Seller details-->
+          <div
+            class="text-slate-800 flex flex-wrap flex-col gap-x-2 gap-y-3 text-xs md:bg-gray-200 md:p-5 md:ml-4"
+          >
+            <div>
+              <div class="flex flex-auto items-center md:mb-2 md:px-2">
+                <div class="flex items-center">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-5 sm:size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="mr-1 font-medium">Seller:</span>
+                </div>
+                <span class="font-light mr-2">Power</span>
+              </div>
+              <div class="flex flex-auto items-center md:mb-2 md:px-2">
+                <div class="flex items-center">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                      class="size-5 sm:size-6 fill-slate-800"
+                    >
+                      <path
+                        d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zm192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2c12.3-2.5 24.1-6.4 35.1-11.5-2.1-10.8-3.1-21.9-3.1-33.3 0-80.3 53.8-148 127.3-169.2.5-2.2.7-4.5.7-6.8 0-17.7-14.3-32-32-32H32zm544 208a144 144 0 1 0-288 0 144 144 0 1 0 288 0zm-76.7-43.3c6.2 6.2 6.2 16.4 0 22.6l-72 72c-6.2 6.2-16.4 6.2-22.6 0l-40-40c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l28.7 28.7 60.7-60.7c6.2-6.2 16.4-6.2 22.6 0z"
+                      />
+                    </svg>
+                    <!-- <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-5 sm:size-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+      />
+    </svg> -->
+                  </span>
+                  <span class="mr-1 font-medium">Seller:</span>
+                </div>
+                <span class="font-light mr-2">Power</span>
+              </div>
+              <div
+                class="flex sm:w-full md:px-2 md:flex-auto md:mb-2 sm:justify-center md:justify-normal items-center"
+              >
+                <div class="flex items-center">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 512"
+                      class="size-5 sm:size-6 fill-slate-800"
+                    >
+                      <path
+                        d="M48 0C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zm368 160h50.7l77.3 77.3V256H416v-96zM112 416a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+                      />
+                    </svg>
+                    <!-- <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-5 sm:size-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+      />
+    </svg> -->
+                  </span>
+                  <span class="mr-1 font-medium">Seller:</span>
+                </div>
+                <span class="font-light mr-2">Power</span>
+              </div>
+            </div>
+            <!--Product price-->
+            <div
+              class="flex justify-center items-center sm:text-base lg:text-lg font-medium mb-2"
+            >
+              <span class="pl-2">
+                <span x-text="product.price" class="text-orange-600"
+                  >25,000</span
+                >
+                <span class="text-gray-600 text-base">SEK</span>
+              </span>
+            </div>
+            <div>
+              <div class="flex justify-center items-center">
+                <button
+                  class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md py-2 border border-slate-300 hover:text-white hover:bg-gray-400 hover:border-orange-300 mb-2"
+                >
+                  Add to Basket
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

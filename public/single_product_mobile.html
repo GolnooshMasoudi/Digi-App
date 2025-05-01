@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./build/output.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-gray-100 px-2">
+    <!--App-Navbar-->
+    <div
+      class="flex justify-between items-center mt-6 mb-6 px-2 py-4 rounded-xl md:hidden"
+    >
+      <!--Single product-->
+      <div class="px-4 flex flex-col items-center justify-center gap-y-5">
+        <!--Product image-->
+        <div class="w-4/5 max-w-xs">
+          <img src="./images/iPhone_16_Pro.png" alt="" />
+        </div>
+        <!--product title & color-->
+        <div class="">
+          <!--Product title-->
+          <div class="mb-6 text-center">
+            <h1
+              class="text-slate-800 font-bold text-lg mb-1 flex justify-center pb-1"
+            >
+              Apple iPhone 16e 128GB, black
+            </h1>
+            <h2 class="font-thin text-gray-500 flex justify-center">
+              New iPhone. At an incredible price.
+            </h2>
+          </div>
+          <!--Product color-->
+          <div class="flex items-center justify-evenly w-full px-2 mb-3">
+            <span
+              class="text-sm font-medium md:text-base lg:text-lg text-slate-800"
+              >Choose color:</span
+            >
+            <div x-data="{color:''}" class="flex items-center">
+              <div
+                @click="color = 'pink'"
+                :class="{
+              'scale-110 ring-1 ring-gray-400': color === 'pink'
+            }"
+                class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-pink-600 -mr-1 transition-transform duration-300"
+              >
+                <svg
+                  x-show="color==='pink'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  class="size-4 sm:size-5 stroke-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+
+              <div
+                @click="color = 'sky'"
+                :class="{'scale-110 ring-1 ring-gray-400': color === 'sky'}"
+                class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-sky-400 -mr-1 transition-transform duration-300"
+              >
+                <svg
+                  x-show="color==='sky'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  class="size-4 sm:size-5 stroke-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+
+              <div
+                @click="color = 'violet'"
+                :class="{'scale-110 ring-1 ring-gray-400': color === 'violet'}"
+                class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-violet-500 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+              >
+                <svg
+                  x-show="color==='violet'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  class="size-4 sm:size-5 stroke-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+
+              <div
+                @click="color = 'green'"
+                :class="{'scale-110 ring-1 ring-gray-400': color === 'green'}"
+                class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-green-400 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+              >
+                <svg
+                  x-show="color==='green'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  class="size-4 sm:size-5 stroke-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Seller details-->
+        <div class="text-slate-800 flex flex-wrap gap-x-2 gap-y-3 text-xs">
+          <div class="flex flex-auto items-center bg-red-300">
+            <div class="flex items-center">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-5 sm:size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+                  />
+                </svg>
+              </span>
+              <span class="mr-1 font-medium">Seller:</span>
+            </div>
+            <span class="font-light mr-2">Power</span>
+          </div>
+          <div class="flex flex-auto items-center bg-red-300">
+            <div class="flex items-center">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                  class="size-5 sm:size-6 fill-slate-800"
+                >
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zm192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2c12.3-2.5 24.1-6.4 35.1-11.5-2.1-10.8-3.1-21.9-3.1-33.3 0-80.3 53.8-148 127.3-169.2.5-2.2.7-4.5.7-6.8 0-17.7-14.3-32-32-32H32zm544 208a144 144 0 1 0-288 0 144 144 0 1 0 288 0zm-76.7-43.3c6.2 6.2 6.2 16.4 0 22.6l-72 72c-6.2 6.2-16.4 6.2-22.6 0l-40-40c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l28.7 28.7 60.7-60.7c6.2-6.2 16.4-6.2 22.6 0z"
+                  />
+                </svg>
+                <!-- <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-5 sm:size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+                  />
+                </svg> -->
+              </span>
+              <span class="mr-1 font-medium">Seller:</span>
+            </div>
+            <span class="font-light mr-2">Power</span>
+          </div>
+          <div class="flex w-full justify-center items-center bg-red-300">
+            <div class="flex items-center">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  class="size-5 sm:size-6 fill-slate-800"
+                >
+                  <path
+                    d="M48 0C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zm368 160h50.7l77.3 77.3V256H416v-96zM112 416a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+                  />
+                </svg>
+                <!-- <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-5 sm:size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+                  />
+                </svg> -->
+              </span>
+              <span class="mr-1 font-medium">Seller:</span>
+            </div>
+            <span class="font-light mr-2">Power</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

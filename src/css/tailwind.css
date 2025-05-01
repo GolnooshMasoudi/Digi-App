@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .stroke-orange-500 {
+    stroke: #ea580c;
+  }
+}
+
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .fill-orange-600 {
+    @apply fill-orange-600;
+  }
+} */
