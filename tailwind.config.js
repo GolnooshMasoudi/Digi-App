@@ -5,7 +5,7 @@ export default {
       screens: {
         "sm-md": "580px",
         "md-sm": "640px",
-        "close-md": "",
+        "lg-xl": "1180px",
       },
       // boxShadow: {
       //   "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",

@@ -285,7 +285,7 @@
                       d="M7.66687 6.3335v2h2"
                     />
                   </svg>
-                  <span class="pl-0 ml-0">Watches & Training</span>
+                  <span class="pl-0 ml-0">Watches</span>
                 </a>
               </li>
               <li
@@ -307,7 +307,7 @@
                     />
                   </svg>
 
-                  <span>Computer & tablets</span>
+                  <span>Computer</span>
                 </a>
               </li>
               <li
@@ -422,195 +422,219 @@
       <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
         <!--Single product-->
         <div
-          class="px-4 flex flex-col items-center justify-center gap-y-5 md:flex-row"
+          class="px-4 flex flex-col items-center md:items-start justify-center gap-y-5 md:flex-row"
         >
           <!--Product image-->
-          <div class="w-4/5 max-w-xs">
+          <!-- <div
+            class="w-5/6 max-w-xs flex justify-center md:h-full md:w-auto md:justify-start"
+            
+          > -->
+          <div
+            class="px-4 flex flex-col items-center md:items-end justify-center gap-y-5 md:flex-row"
+          >
             <img src="./iPhone_16_Pro-removebg-preview 2.png" alt="" />
           </div>
-          <!--product title & color-->
-          <div class="">
-            <!--Product title-->
-            <div class="mb-6 text-center">
-              <h1
-                class="text-slate-800 font-bold text-lg mb-1 flex justify-center pb-1"
-              >
-                Apple iPhone 16e 128GB, black
-              </h1>
-              <h2 class="font-thin text-gray-500 flex justify-center">
-                New iPhone. At an incredible price.
-              </h2>
-            </div>
-            <!--Product color-->
+
+          <div class="flex flex-col gap-y-4 lg-xl:gap-y-16">
+            <!-- Wrapper for text content -->
             <div
-              class="flex items-center justify-evenly w-full px-2 mb-3 md:justify-start"
+              class="flex flex-col md:flex-col lg:flex-row md:gap-y-5 lg:gap-x-8 px-3 py-2"
             >
-              <span
-                class="text-sm font-medium md:text-base lg:text-lg text-slate-800"
-                >Choose color:</span
+              <!--product price-->
+              <div
+                class="hidden md:flex justify-start underline underline-offset-4 decoration-slate-400 items-center md:text-xl lg:text-2xl font-extrabold lg:hidden"
               >
-              <div x-data="{color:''}" class="flex items-center">
+                <span class="">
+                  <span x-text="product.price" class="text-orange-600"
+                    >25,000</span
+                  >
+                  <span class="text-gray-600 text-base">kr.</span>
+                </span>
+              </div>
+              <!--product title & color-->
+              <div class="">
+                <!--product price-->
                 <div
-                  @click="color = 'pink'"
-                  :class="{
+                  class="hidden lg:flex justify-start underline underline-offset-4 decoration-slate-400 items-center lg:text-2xl font-extrabold"
+                >
+                  <span class="">
+                    <span x-text="product.price" class="text-orange-600"
+                      >25,000</span
+                    >
+                    <span class="text-gray-600 text-base">kr.</span>
+                  </span>
+                </div>
+                <!--Product title-->
+                <div class="mb-6 text-center md:text-left md:flex md:flex-col">
+                  <h1
+                    class="text-slate-800 font-bold md:text-base flex justify-center lg:text-lg xl:text-xl md:pt-2 lg:pt-3 mb-1 pb-1"
+                  >
+                    Apple iPhone 16e 128GB, black
+                  </h1>
+                  <h2
+                    class="lg:hidden font-thin text-gray-500 md:pt-1 flex justify-center flex-col"
+                  >
+                    <span>At an incredible price. </span>
+                    <span>Capture the moment with camera controls.</span>
+                  </h2>
+                </div>
+                <!--Product color-->
+                <div
+                  class="flex items-center justify-center mb-6 md:justify-start w-full gap-2 md:mb-10 lg:mb-3 md:self-end"
+                >
+                  <span
+                    class="text-sm font-medium md:text-base xl:text-lg text-slate-800"
+                    >Choose color:</span
+                  >
+                  <div x-data="{color:''}" class="flex items-center">
+                    <div
+                      @click="color = 'pink'"
+                      :class="{
             'scale-110 ring-1 ring-gray-400': color === 'pink'
           }"
-                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-pink-600 -mr-1 transition-transform duration-300"
-                >
-                  <svg
-                    x-show="color==='pink'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    class="size-4 sm:size-5 stroke-white"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </div>
-
-                <div
-                  @click="color = 'sky'"
-                  :class="{'scale-110 ring-1 ring-gray-400': color === 'sky'}"
-                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-sky-400 -mr-1 transition-transform duration-300"
-                >
-                  <svg
-                    x-show="color==='sky'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    class="size-4 sm:size-5 stroke-white"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </div>
-
-                <div
-                  @click="color = 'violet'"
-                  :class="{'scale-110 ring-1 ring-gray-400': color === 'violet'}"
-                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-violet-500 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
-                >
-                  <svg
-                    x-show="color==='violet'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    class="size-4 sm:size-5 stroke-white"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </div>
-
-                <div
-                  @click="color = 'green'"
-                  :class="{'scale-110 ring-1 ring-gray-400': color === 'green'}"
-                  class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-green-400 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
-                >
-                  <svg
-                    x-show="color==='green'"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    class="size-4 sm:size-5 stroke-white"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Seller details-->
-          <div
-            class="text-slate-800 flex flex-wrap flex-col gap-x-2 gap-y-3 text-xs md:bg-gray-200 md:p-5 md:ml-4"
-          >
-            <div>
-              <div class="flex flex-auto items-center md:mb-2 md:px-2">
-                <div class="flex items-center">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="size-5 sm:size-6"
+                      class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-pink-600 -mr-1 transition-transform duration-300"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
-                      />
-                    </svg>
-                  </span>
-                  <span class="mr-1 font-medium">Seller:</span>
-                </div>
-                <span class="font-light mr-2">Power</span>
-              </div>
-              <div class="flex flex-auto items-center md:mb-2 md:px-2">
-                <div class="flex items-center">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 576 512"
-                      class="size-5 sm:size-6 fill-slate-800"
+                      <svg
+                        x-show="color==='pink'"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        class="size-4 sm:size-5 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+
+                    <div
+                      @click="color = 'sky'"
+                      :class="{'scale-110 ring-1 ring-gray-400': color === 'sky'}"
+                      class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-sky-400 -mr-1 transition-transform duration-300"
                     >
-                      <path
-                        d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zm192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2c12.3-2.5 24.1-6.4 35.1-11.5-2.1-10.8-3.1-21.9-3.1-33.3 0-80.3 53.8-148 127.3-169.2.5-2.2.7-4.5.7-6.8 0-17.7-14.3-32-32-32H32zm544 208a144 144 0 1 0-288 0 144 144 0 1 0 288 0zm-76.7-43.3c6.2 6.2 6.2 16.4 0 22.6l-72 72c-6.2 6.2-16.4 6.2-22.6 0l-40-40c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l28.7 28.7 60.7-60.7c6.2-6.2 16.4-6.2 22.6 0z"
-                      />
-                    </svg>
-                    <!-- <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-5 sm:size-6"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
-      />
-    </svg> -->
-                  </span>
-                  <span class="mr-1 font-medium">Seller:</span>
+                      <svg
+                        x-show="color==='sky'"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        class="size-4 sm:size-5 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+
+                    <div
+                      @click="color = 'violet'"
+                      :class="{'scale-110 ring-1 ring-gray-400': color === 'violet'}"
+                      class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-violet-500 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+                    >
+                      <svg
+                        x-show="color==='violet'"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        class="size-4 sm:size-5 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+
+                    <div
+                      @click="color = 'green'"
+                      :class="{'scale-110 ring-1 ring-gray-400': color === 'green'}"
+                      class="w-5 h-5 sm:w-6 sm:h-6 rounded-full cursor-pointer border-2 border-slate-100 bg-green-400 -mr-1 transition-transform duration-300 ring-1 ring-gray-400"
+                    >
+                      <svg
+                        x-show="color==='green'"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        class="size-4 sm:size-5 stroke-white"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <span class="font-light mr-2">Power</span>
+
+                <!-----------ADD TO CART BUTTONS------------>
+                <!-- Product price (visible only on desktop) -->
+                <div class="hidden md:block">
+                  <div class="flex justify-center items-center">
+                    <button
+                      class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md py-2 border border-slate-300 hover:text-orange-400 hover:bg-gray-300 hover:border-orange-300 mb-2"
+                    >
+                      Add to Basket
+                    </button>
+                  </div>
+                </div>
               </div>
+              <!--Seller details-->
               <div
-                class="flex sm:w-full md:px-2 md:flex-auto md:mb-2 sm:justify-center md:justify-normal items-center"
+                class="order-3 md:order-2 lg:order-2 text-slate-800 rounded-xl flex flex-wrap flex-col gap-x-2 gap-y-3 text-xs md:bg-gray-200 md:p-1 lg:p-1 justify-evenly lg:justify-normal items-center lg:max-h-[220px]"
               >
-                <div class="flex items-center">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 512"
-                      class="size-5 sm:size-6 fill-slate-800"
-                    >
-                      <path
-                        d="M48 0C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zm368 160h50.7l77.3 77.3V256H416v-96zM112 416a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
-                      />
-                    </svg>
-                    <!-- <svg
+                <!---details section--->
+                <div
+                  class="px-4 md:px-0 text-slate-800 rounded-xl flex flex-wrap md:flex-col gap-x-2 sm:gap-x-8 gap-y-1 lg:gap-y-3 text-xs md:text-base lg:text-base md:bg-gray-200 md:p-2 lg:p-5"
+                >
+                  <!-- Seller, Charger , Delivery-->
+                  <div
+                    class="flex flex-auto items-center sm:justify-end md:justify-center md:mb-2 md:px-2"
+                  >
+                    <div class="flex justify-between items-center gap-x-2">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="size-5 sm:size-6"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+                          />
+                        </svg>
+                      </span>
+                      <span class="font-medium p-2">Seller:</span>
+                    </div>
+                    <span class="font-light p-2">Power</span>
+                  </div>
+                  <div
+                    class="flex flex-auto items-center sm:justify-start md:mb-2 md:px-2"
+                  >
+                    <div class="flex items-center gap-x-2">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                          class="size-5 sm:size-6 fill-slate-800"
+                        >
+                          <path
+                            d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zm192 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32v-67.2c12.3-2.5 24.1-6.4 35.1-11.5-2.1-10.8-3.1-21.9-3.1-33.3 0-80.3 53.8-148 127.3-169.2.5-2.2.7-4.5.7-6.8 0-17.7-14.3-32-32-32H32zm544 208a144 144 0 1 0-288 0 144 144 0 1 0 288 0zm-76.7-43.3c6.2 6.2 6.2 16.4 0 22.6l-72 72c-6.2 6.2-16.4 6.2-22.6 0l-40-40c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l28.7 28.7 60.7-60.7c6.2-6.2 16.4-6.2 22.6 0z"
+                          />
+                        </svg>
+                        <!-- <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -624,31 +648,181 @@
         d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
       />
     </svg> -->
-                  </span>
-                  <span class="mr-1 font-medium">Seller:</span>
+                      </span>
+                      <span class="font-medium p-2">Charger:</span>
+                    </div>
+                    <span class="font-light p-2">No </span>
+                  </div>
+                  <div
+                    class="flex sm:w-full md:px-2 md:flex-auto md:mb-2 sm:justify-center md:justify-normal items-center"
+                  >
+                    <div class="flex items-center gap-x-2">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512"
+                          class="size-5 sm:size-6 fill-slate-800"
+                        >
+                          <path
+                            d="M48 0C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zm368 160h50.7l77.3 77.3V256H416v-96zM112 416a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+                          />
+                        </svg>
+                        <!-- <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-5 sm:size-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z"
+      />
+    </svg> -->
+                      </span>
+                      <span class="font-medium p-2">Delivery:</span>
+                    </div>
+                    <span class="font-light p-2">Yes</span>
+                  </div>
                 </div>
-                <span class="font-light mr-2">Power</span>
+                <!--- Stock status-->
+                <!-- <div>
+                <h2>Stock status in department stores</h2>
+              </div> -->
+                <!--Product price-->
+                <!-- <div
+                class="hidden md:flex justify-center items-center sm:text-base lg:text-lg font-medium mb-2"
+              >
+                <span class="pl-2">
+                  <span x-text="product.price" class="text-orange-600"
+                    >25,000</span
+                  >
+                  <span class="text-gray-600 text-base">kr.</span>
+                </span>
+              </div> -->
+                <!-----------ADD TO CART BUTTONS------------>
+                <!-- Product price (visible only on desktop) -->
+                <!-- <div class="hidden md:block">
+                <div class="flex justify-center items-center">
+                  <button
+                    class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md py-2 border border-slate-300 hover:text-white hover:bg-gray-400 hover:border-orange-300 mb-2"
+                  >
+                    Add to Basket
+                  </button>
+                </div>
+              </div> -->
+                <!-- Product price (visible only on mobile, sticky at bottom) -->
+                <div
+                  class="fixed bottom-0 mb-16 sm:mb-40 left-0 w-full bg-white/90 shadow-md flex justify-center items-center text-base font-medium md:hidden z-50 py-2"
+                >
+                  <!-- <span class="flex items-center justify-center pr-2">
+                  <span x-text="product.price" class="text-orange-600"
+                    >25,000</span
+                  >
+                  <span class="text-gray-600 text-base">SEK</span>
+                </span> -->
+                  <div class="flex justify-center items-center py-2">
+                    <button
+                      class="p-2 flex justify-center items-center gap-2 w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md border border-slate-300 hover:text-orange-400 hover:bg-gray-300 hover:border-orange-300"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        class="size-6 stroke-orange-500 stroke-[1] fill-gray-100"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                        />
+                      </svg>
+                      <!-- Price + SEK -->
+                      <span class="flex items-center gap-1 font-bold">
+                        <span x-text="product.price" class="text-orange-600"
+                          >25,000</span
+                        >
+                        <span class="text-gray-500 text-sm font-medium"
+                          >kr.</span
+                        >
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Read More Mobile-->
+                <div class="my-8 md:hidden px-4">
+                  <div class="text-sm lg:text-base text-slate-800">
+                    <h2
+                      class="mb-4 font-regular font-bold text-2xl text-slate-800"
+                    >
+                      Briefly about the product
+                    </h2>
+                    The iPhone 16 Pro smartphone is equipped with super-capable
+                    Apple Intelligence, a pro-grade triple camera array and the
+                    incredibly powerful A18 Pro processor. A large battery and
+                    multiple charging options ensure a long-lasting experience.
+
+                    <a
+                      class="block mt-4 link font-body font-bold inverted-link text-slate-800"
+                      href="#description"
+                    >
+                      Read more about the product</a
+                    >
+                  </div>
+                </div>
+                <!--Subscription-->
+                <div class="my-8 md:hidden px-4">
+                  <div class="text-sm lg:text-base text-slate-800">
+                    <h2
+                      class="mb-4 font-regular font-bold text-2xl text-slate-800"
+                    >
+                      SUBSCRIPTION
+                    </h2>
+                    <h3>
+                      Get the most out of your phone with the right subscription
+                    </h3>
+                    At Elgiganten you will find a wide range of subscriptions
+                    from Telia, Telenor, Tre, Tele2 and Halebop. We make it easy
+                    for you to compare the operators' offers and find the
+                    perfect subscription that suits your needs. Whether you are
+                    looking for fast connection, affordable options or flexible
+                    solutions, we have something for everyone.
+                    <a
+                      class="block mt-4 link font-body font-bold inverted-link text-slate-800"
+                      href="#description"
+                    >
+                      Read more about the product</a
+                    >
+                  </div>
+                </div>
               </div>
             </div>
-            <!--Product price-->
-            <div
-              class="flex justify-center items-center sm:text-base lg:text-lg font-medium mb-2"
-            >
-              <span class="pl-2">
-                <span x-text="product.price" class="text-orange-600"
-                  >25,000</span
-                >
-                <span class="text-gray-600 text-base">SEK</span>
-              </span>
-            </div>
-            <div>
-              <div class="flex justify-center items-center">
-                <button
-                  class="w-full bg-slate-50 text-gray-400 shadow-lg font-normal text-base rounded-md py-2 border border-slate-300 hover:text-white hover:bg-gray-400 hover:border-orange-300 mb-2"
-                >
-                  Add to Basket
-                </button>
-              </div>
+            <div class="hidden flex-col md:gap-y-5 lg:gap-x-8 px-3 py-2">
+              <h3
+                class="text-lg font-bold text-slate-800 items-center justify-center font-body"
+              >
+                Technical specification
+              </h3>
+              <span class="flex items-center"
+                >6.9" Super Retina XDR OLED display</span
+              >
+              <span class="flex items-center">Rear camera: 48+48+12 MP</span>
+              <span class="flex items-center"
+                >Comes with the customizable action button</span
+              >
+              <span class="flex items-center">Front camera: 12 MP, f/1.9</span>
+              <span class="flex items-center">Powerful A18 Pro chip </span>
+              <span class="flex items-center"
+                >5000 mAh battery with optimized power usage helps extend
+                battery life</span
+              >
+              <span class="flex items-center">Dynamic Island</span>
+              <span class="flex items-center"
+                >4x studio quality microphones</span
+              >
             </div>
           </div>
         </div>
